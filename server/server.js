@@ -14,8 +14,15 @@ io.on('connection', socket => {
   console.log('New user connected');
 
   //socket.emit - emits event to single connection
-  socket.emit('newEmail', {
-    text: 'elooooo'
+  socket.emit('newMessage', {
+    from: 'Admin',
+    text: 'Welcome to the chat'
+  });
+
+  //socket.broadcast.emit - emits event to every connection but the socket itself
+  socket.broadcast.emit('newMessage', {
+    from: 'Admin',
+    text: 'New user joined'
   });
 
   socket.on('createMessage', message => {
