@@ -1,0 +1,18 @@
+{
+  "name": "chat-app",
+  "version": "1.0.0",
+  "description": "Chat Application",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server/server.js"
+  },
+  "engines": {
+    "node": "11.6.0"
+  },
+  "author": "Szymon Ludyga",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
