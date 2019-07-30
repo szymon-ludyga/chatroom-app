@@ -19,6 +19,7 @@ button:hover {
 }
 li,
 ul {
+  font-size: 2rem;
   list-style-position: inside;
 }
 h3 {
@@ -134,7 +135,11 @@ button:disabled {
     rgb(231, 176, 208) 0,
     rgb(156, 86, 119) 100%
   );
-  background: linear-gradient(325deg, rgb(124, 202, 124) 0, rgba(184, 255, 92, 0.527) 100%);
+  background: linear-gradient(
+    325deg,
+    rgb(124, 202, 124) 0,
+    rgba(184, 255, 92, 0.527) 100%
+  );
 }
 .chat__footer,
 .chat__sidebar li {
