@@ -26,7 +26,7 @@ io.on('connection', socket => {
     console.log('createMessage', message);
     //io.emit - emits event to every connection
     io.emit('newMessage', generateMessage(message.from, message.text));
-    callback('this is from server');
+    callback();
   });
 
   socket.on('disconnect', socket => {
