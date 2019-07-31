@@ -44,17 +44,6 @@ socket.on('newMessage', function(message) {
   scrollToBottom();
 });
 
-socket.emit(
-  'createMessage',
-  {
-    from: 'someone',
-    text: 'Something'
-  },
-  function(data) {
-    console.log('Got it,', data);
-  }
-);
-
 jQuery('#message-form').on('submit', function(e) {
   e.preventDefault();
 
