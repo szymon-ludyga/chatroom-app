@@ -4,6 +4,7 @@ const express = require('express');
 const socketIO = require('socket.io');
 const publicPath = path.join(__dirname, '..', 'public');
 const { generateMessage } = require('./utils/message');
+const { isRealString } = require('./utils/validation');
 const app = express();
 const server = http.createServer(app);
 const io = socketIO(server);
@@ -21,6 +22,13 @@ io.on('connection', socket => {
     'newMessage',
     generateMessage('Admin', 'New user joined')
   );
+
+  socket.on('join', (params, callback) => {
+    if (!isRealString(params.name) || !isRealString(params.room)) {
+      callback('Name and room name are required');
+    }
+    callback();
+  });
 
   socket.on('createMessage', (message, callback) => {
     console.log('createMessage', message);
