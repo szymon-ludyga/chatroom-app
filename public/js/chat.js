@@ -35,6 +35,16 @@ socket.on('disconnect', function() {
   console.log('Disconnected');
 });
 
+socket.on('update-user-list', function(usersArr) {
+  let ul = jQuery('<ul></ul>');
+
+  usersArr.forEach(user => {
+    ul.append(jQuery('<li></li>').text(user));
+  });
+
+  jQuery('#users').html(ul);
+});
+
 socket.on('newMessage', function(message) {
   console.log(message);
   let li = jQuery('<li></li>');
