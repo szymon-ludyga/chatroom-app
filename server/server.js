@@ -46,10 +46,14 @@ io.on('connection', socket => {
   });
 
   socket.on('createMessage', (message, callback) => {
-    console.log('createMessage', message);
-    //io.emit - emits event to every connection
-    //io.to(roomName).emit() - emit to every connection in room
-    io.emit('newMessage', generateMessage(message.from, message.text));
+    const user = users.getUser(socket.id);
+
+    if (user && isRealString(message.text)) {
+      //io.emit - emits event to every connection
+      //io.to(roomName).emit() - emit to every connection in room
+      io.to(user.room).emit('newMessage', generateMessage(user.name, message.text));
+      
+    }
     callback();
   });
 
